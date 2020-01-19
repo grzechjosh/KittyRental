@@ -1,0 +1,9 @@
+<h1> Here are all of our amazing cats! </h1>
+
+<ul>
+<% Cat.all.each do |thisCat| %>
+<li><a href="/cats/<%= thisCat.id %>/"><%=  thisCat.name %></a></li>
+<%end%>
+</ul>
+
+<a href="/cats/new">Submit a cat to our sanctuary</a>

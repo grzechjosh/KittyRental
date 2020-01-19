@@ -1,0 +1,95 @@
+<style>
+table,
+td {
+    border: 1px solid #333;
+}
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
+</style>
+
+<h1>Submit a cat to our sanctuary by filling out the form below:</h1>
+
+
+<%= form_tag( { :action => :create, }, { :method => :post }) %>
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Cat Stats</th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr>
+            <td> Name: </td> 
+            <td> <%= text_field :newCat, :name%>  </td>
+        </tr>
+    </tbody>
+    <tbody> 
+        <tr>
+            <td> Sex </td> 
+            <td>  <table>
+    <thead>
+        <tr>
+            <th colspan="2">Select One</th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr>
+            <td> Male </td> 
+            <td> <%= radio_button :newCat, :sex, :M %> </td>
+        </tr>
+    </tbody>
+    <tbody> 
+        <tr>
+            <td> Female </td> 
+            <td>  <%= radio_button :newCat, :sex, :F %> </td>
+        </tr>
+    </tbody>
+</table>
+</td>
+        </tr>
+    </tbody>
+    <tbody> 
+        <tr>
+            <td>Color: </td>
+            <td><table>
+    <thead>
+        <tr>
+            <th colspan="1">Select One</th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr>
+            <td><%= select :newCat, :color, @valid_colors %></td>
+        </tr>
+    </tbody>
+</table>
+</td>
+        </tr>
+    </tbody>
+     <tbody> 
+        <tr>
+            <td> Birthday: </td> 
+            <td> <%= date_select :newCat, :birth_date %> </td>
+        </tr>
+    </tbody>
+    <tbody> 
+     <tbody> 
+        <tr>
+            <td> Description: </td> 
+            <td> <%= text_area :newCat, :description %> </td>
+        </tr>
+    </tbody>
+    <tbody>
+</table>
+
+<input type="submit" value="Submit This Form">
+
+
+
+
+
+
