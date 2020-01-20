@@ -10,6 +10,11 @@ class Cat < ApplicationRecord
         return distance_of_time_in_words_to_now(date_then)
     end
     
+    has_many :cat_rental_requests,
+        primary_key: :id,
+        foreign_key: :cat_id,
+        class_name: :CatRentalRequest,
+        dependent: :destroy
 end
 
 

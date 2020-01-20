@@ -1,0 +1,58 @@
+<style>
+.approved {
+    color: green
+}
+.pending {
+    color: blue
+}
+.denied {
+    color: red
+}
+table,
+td {
+    border: 1px solid #333;
+}
+thead,
+tfoot {
+    background-color: white;
+    color: #fff;
+}
+</style>
+
+ <table>
+    <thead>
+        <tr>
+            <th class = "<%= @currentStatus %>" colspan="2"><%=@currentRequest.status%></th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr>
+            <td>Cat's Name:</td>
+            <td> <%= "#{@currentRequest.cat.name}" %> </td>
+            <%= text_field :newRequest, :cat_id, value: "#{@currentCat.id}" %>
+        </tr>
+    </tbody>
+    <tbody> 
+        <tr>
+            <td>Start Date:</td>
+            <td> <%= "#{@currentRequest.start_date.to_formatted_s(:long_ordinal)}" %> </td>
+        </tr>
+    </tbody>
+    <tbody> 
+        <tr>
+            <td>End Date:</td>
+            <td> <%= "#{@currentRequest.end_date.to_formatted_s(:long_ordinal)}" %> </td>
+        </tr>
+    </tbody>
+    <tbody> 
+        <tr>
+            <td>Update:</td>
+            <td> <a href="/cats/<%=@currentRequest.cat_id%>/cat_rental_requests/<%=@currentRequest.id%>/edit">Edit Request</a></td>
+        </tr>
+    </tbody>
+</table>
+<a href="/cats/<%=@currentRequest.cat_id%>/cat_rental_requests/">Return to Rental Requests</a>
+<br>
+<a href="/cats/<%=@currentRequest.cat_id%>">View Cat</a>
+<br>
+<a href="/cats/">Return to all Cats</a>

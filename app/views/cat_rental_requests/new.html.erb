@@ -1,0 +1,60 @@
+
+<style>
+.approved {
+    color: green
+}
+.pending {
+    color: blue
+}
+.denied {
+    color: red
+}
+table,
+td {
+    border: 1px solid #333;
+}
+thead,
+tfoot {
+    background-color: white;
+    color: #fff;
+}
+</style>
+
+<h1>New Cat Rental Request:</h1>
+<form action="/cats/<%=@currentCat.id%>/cat_rental_requests/" method="post">
+
+
+ <table>
+    <thead>
+        <tr>
+            <th class = "<%=  %>" colspan="2"><%=%></th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr>
+            <td>Cat:</td>
+            <td><%=@currentCat.name%></td>
+            <%= text_field :newRequest, :cat_id, value: "#{@currentCat.id}" %>
+        </tr>
+    </tbody>
+    <tbody> 
+        <tr>
+            <td>Start Date:</td>
+            <td> <%= date_select :newRequest, :start_date %> </td>
+        </tr>
+    </tbody>
+    <tbody> 
+        <tr>
+            <td>End Date:</td>
+            <td> <%= date_select :newRequest, :end_date %> </td>
+        </tr>
+    </tbody>
+</table>
+<input name="commit" type="submit" value="Save Changes" /> 
+<br>
+
+<a href="/cats/<%=@currentCat.id%>/cat_rental_requests/">Return to Rental Requests</a>
+<br>
+<a href="/cats/<%=@currentCat.id%>">View Cat</a>
+<br>
+<a href="/cats/">Return to all Cats</a>

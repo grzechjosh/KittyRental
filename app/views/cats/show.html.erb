@@ -57,5 +57,9 @@ tfoot {
 </table>
 
 <a href="/cats/<%= @thisCat.id %>/edit">Edit this Cat's Info</a>
-
+<br>
 <a href="/cats/">Return to all cats</a>
+<br>
+<a href="/cats/<%=@thisCat.id%>/cat_rental_requests">See <%= @thisCat.name%>'s Rental Requests</a>
+<br>
+<a href="/cats/<%=@thisCat.id%>/cat_rental_requests/new">Submit a Rental Request for <%= @thisCat.name%></a>

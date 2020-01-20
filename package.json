@@ -1,5 +1,7 @@
 {
   "name": "NinetyNineCats",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@material/button": "^4.0.0"
+  }
 }

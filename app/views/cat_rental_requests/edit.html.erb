@@ -1,0 +1,60 @@
+<style>
+.approved {
+    color: green
+}
+.pending {
+    color: blue
+}
+.denied {
+    color: red
+}
+table,
+td {
+    border: 1px solid #333;
+}
+thead,
+tfoot {
+    background-color: white;
+    color: #fff;
+}
+</style>
+
+<h1>Edit Request for <%=@currentCat.name%>:</h1>
+
+<%= form_for cat_cat_rental_request_path, :url => {:controller => :cat_rental_requests, action: :update}, method: "patch" do |f| %>
+
+
+ <table>
+    <thead>
+        <tr>
+            <th class = "<%= @currentStatus %>" colspan="2"><%=@currentRequest.status%></th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr>
+            <td>Status:</td>
+            <td><%= f.select :status, @validOptions, :selected => "#{@currentRequest.status}" %></td>
+            <%= f.text_field :cat_id, value: "#{@currentCat.id}" %>
+        </tr>
+    </tbody>
+    <tbody> 
+        <tr>
+            <td>Start Date:</td>
+            <td> <%= f.date_select :start_date, :selected => @currentRequest.start_date %> </td>
+        </tr>
+    </tbody>
+    <tbody> 
+        <tr>
+            <td>End Date:</td>
+            <td> <%= f.date_select :end_date, :selected => @currentRequest.end_date %> </td>
+        </tr>
+    </tbody>
+</table>
+<input name="update" type="submit" value="Save Changes" />
+
+<% end %>
+<a href="/cats/<%=@currentRequest.cat_id%>/cat_rental_requests/">Return to Rental Requests</a>
+<br>
+<a href="/cats/<%=@currentRequest.cat_id%>">View Cat</a>
+<br>
+<a href="/cats/">Return to all Cats</a>
