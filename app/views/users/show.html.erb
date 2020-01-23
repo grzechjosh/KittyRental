@@ -1,0 +1,18 @@
+<h1>Welcome back <%= current_user.username %>! </h1>
+
+<h2>Here are all of your cat's:</h2>
+
+<%if current_user.cats %>
+    <% current_user.cats.each do |cat| %>
+        <a href="/cats/<%=cat.id%>"><%= cat.name %></a>
+    <% end %>
+<% end %>
+
+<h1> <%= current_user.username %>'s Rental Requests </h1>
+
+<%if current_user.cat_rental_requests %>
+    <% current_user.cat_rental_requests.each do |request| %>
+        <a href="/cats/<%=request.cat_id%>/cat_rental_requests/<%=request.id%>"><%= request.start_date %></a>
+    <% end %>
+<% end %>
+

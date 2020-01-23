@@ -9,12 +9,13 @@ tfoot {
     color: #fff;
 }
 </style>
-
 <h1>Edit <%= @thisCat.name %>'s Info :</h1>
 
 
-<%= form_for @thisCat do |f| %>
-<% method: :patch %>
+
+<%= form_tag( { :action => :update, }, { :method => :patch }) %>
+
+
 
 <table>
     <thead>
@@ -37,15 +38,6 @@ tfoot {
             <th colspan="2">Select One</th>
         </tr>
     </thead>
-    <% def updateSexChecked%>
-    <% if @thisCat.sex == "M"%>
-    <% return "checked"%>
-    <% elsif @thisCat.sex == "F"%>
-    <% return "checked"%>
-    <% else%>
-    <% return "unchecked"%>
-    <% end%>
-    <% end%>
 
     <tbody> 
         <tr>
@@ -97,8 +89,8 @@ tfoot {
     <tbody>
 </table>
 
-<%= f.submit "Save this Cat's Info" %>
-<% end %>
+<input type="submit" value="Submit This Form">
+
 
 
 

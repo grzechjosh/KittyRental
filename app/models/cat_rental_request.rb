@@ -25,6 +25,11 @@ class CatRentalRequest < ApplicationRecord
         foreign_key: :cat_id,
         class_name: :Cat
 
+    belongs_to :user,
+        primary_key: :id, 
+        foreign_key: :user_id,
+        class_name: :User
+
     
 
     

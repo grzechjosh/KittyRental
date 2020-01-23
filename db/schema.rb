@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_19_010842) do
+ActiveRecord::Schema.define(version: 2020_01_23_154301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 2020_01_19_010842) do
     t.date "start_date"
     t.date "end_date"
     t.string "status", default: "Pending", null: false
+    t.integer "user_id", null: false
     t.index ["cat_id"], name: "index_cat_rental_requests_on_cat_id"
+    t.index ["user_id"], name: "index_cat_rental_requests_on_user_id"
   end
 
   create_table "cats", force: :cascade do |t|
@@ -31,6 +33,19 @@ ActiveRecord::Schema.define(version: 2020_01_19_010842) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_cats_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "password_digest", null: false
+    t.string "session_token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["password_digest"], name: "index_users_on_password_digest"
+    t.index ["session_token"], name: "index_users_on_session_token"
+    t.index ["username"], name: "index_users_on_username"
   end
 
 end

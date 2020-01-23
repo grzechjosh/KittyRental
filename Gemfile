@@ -42,6 +42,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'jquery-rails'
   gem 'materialize-sass'
+  gem 'bcrypt'
 end
 
 group :development do

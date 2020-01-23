@@ -1,0 +1,16 @@
+<h1> <%= @showUser.username %>'s Cats </h1>
+
+<%if @showUser.cats %>
+    <% @showUser.cats.each do |cat| %>
+        <a href="/cats/<%=cat.id%>"><%= cat.name %></a>
+    <% end %>
+<% end %>
+
+<h1> <%= @showUser.username %>'s Rental Requests </h1>
+
+<%if @showUser.cat_rental_requests %>
+    <% @showUser.cat_rental_requests.each do |request| %>
+        <a href="/cats/<%=request.cat_id%>/cat_rental_requests/<%=request.id%>"><%= request.start_date %></a>
+    <% end %>
+<% end %>
+

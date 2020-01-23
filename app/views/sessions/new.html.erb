@@ -1,0 +1,10 @@
+<%if flash.now[:errors] %>
+   <%= flash.now[:errors] %> 
+<% end%>
+<h1>Please login using the form below:</h1>
+<%= form_tag( { :action => :create, }, { :method => :post }) %>
+<h2>Username:</h2>
+<%= text_field :session, :username %>
+<h2>Password:</h2>
+<%= text_field :session, :password %>
+<input type="submit" value="Sign In">

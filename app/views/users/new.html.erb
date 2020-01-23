@@ -1,0 +1,20 @@
+<% if flash.now[:errors] %>
+  <% flash.now[:errors].each do |error| %>
+   <%= error %><br />
+  <% end %>
+<% end %>
+
+<h1>Create a new account by completing the form below:</h1>
+
+<%= form_tag( { :action => :create, }, { :method => :post }) %>
+
+<h2>Username:</h2>
+
+<%= text_field :newUser, :username%>
+
+<h2>Password:</h2>
+
+<%= text_field :newUser, :password %> 
+
+<input type="submit" value="Create Account">
+

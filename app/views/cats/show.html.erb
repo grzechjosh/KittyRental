@@ -10,7 +10,14 @@ tfoot {
 }
 </style>
 
+<% if flash.now[:errors] %>
+   <h1><%= flash.now[:errors] %><br/></h1>
+<% end %>
+<% if flash.now[:messages] %>
+   <h1><%= flash.now[:errors] %><br/></h1>
+<% end %>
 <h1> Meet <%= @thisCat.name%>! <h1>
+<h2>Owner: <a href="/users/<%= @thisCat.user.id%>"><%= @thisCat.user.username %></a></h2>
 
 <table>
     <thead>

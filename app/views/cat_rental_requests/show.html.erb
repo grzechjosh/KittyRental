@@ -18,6 +18,18 @@ tfoot {
     color: #fff;
 }
 </style>
+<% if flash.now[:errors] %>
+   <h1><%= flash.now[:errors] %><br/></h1>
+<% end %>
+<%if !current_user.nil?%>
+<% if current_user.id == @currentRequest.cat.user.id%>
+    <%= form_for cat_cat_rental_request_path, :url => {:controller => :cat_rental_requests, action: :update}, method: "patch" do |f| %>
+    <td><%= f.select :status, @validOptions, :selected => "#{@currentRequest.status}" %></td>
+    <input name="update" type="submit" value="Save Changes" />
+    <% end %>
+<% end %>
+<% end %>
+    
 
  <table>
     <thead>
@@ -41,6 +53,12 @@ tfoot {
         <tr>
             <td>End Date:</td>
             <td> <%= "#{@currentRequest.end_date.to_formatted_s(:long_ordinal)}" %> </td>
+        </tr>
+    </tbody>
+    <tbody> 
+        <tr>
+            <td>Requested By:</td>
+            <td> <a href="/users/<%=@currentRequest.user_id%>"><%=@currentRequest.user.username%></a> </td>
         </tr>
     </tbody>
     <tbody> 
